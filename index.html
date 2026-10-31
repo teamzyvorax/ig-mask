@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>IG MASK — Public Profile Finder</title>
+  <meta name="description" content="Find public Instagram profile candidates from visible usernames, text and public clues in an image.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="brand">IG<span>MASK</span></div>
+      <p>PUBLIC PROFILE FINDER</p>
+    </header>
+
+    <section class="card hero">
+      <h1>Find public Instagram profiles from image clues</h1>
+      <p class="muted">Upload an image. IG MASK reads visible text such as <b>@usernames</b>, watermarks and public labels, then creates search links. It does not identify people by face.</p>
+      <label class="drop" id="drop">
+        <input id="imageInput" type="file" accept="image/*">
+        <span class="icon">⌁</span>
+        <strong>Choose an image</strong>
+        <small>PNG, JPG, WEBP • processed in your browser</small>
+      </label>
+      <div id="previewWrap" class="preview hidden"><img id="preview" alt="Selected image preview"></div>
+      <div class="actions">
+        <button id="scanBtn" disabled>SCAN PUBLIC CLUES</button>
+        <button id="clearBtn" class="secondary">CLEAR</button>
+      </div>
+    </section>
+
+    <section class="card hidden" id="results">
+      <div class="sectionTitle"><h2>Detected clues</h2><span id="status"></span></div>
+      <div id="clues" class="chips"></div>
+      <div id="profiles" class="profiles"></div>
+    </section>
+
+    <section class="card info">
+      <h2>How it works</h2>
+      <ol>
+        <li>OCR reads visible text from the uploaded image.</li>
+        <li>IG MASK extracts public-looking <code>@usernames</code> and useful text clues.</li>
+        <li>Search links open public web/Instagram search pages so you can verify the result yourself.</li>
+      </ol>
+      <p class="notice">Privacy: the image is processed locally in your browser by default. No face recognition or private-account discovery is performed.</p>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
